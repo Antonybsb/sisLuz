@@ -24,11 +24,25 @@ module.exports = {
       statusPagamento: {
         type: Sequelize.STRING
       },
-      transacaoId: {
-        type: Sequelize.INTEGER
+      transacao_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'TransacaoFinanceira',
+          key: 'transacao_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
-      categoriaId: {
-        type: Sequelize.INTEGER
+      categoria_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'CategoriaTransacao',
+          key: 'categoria_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,

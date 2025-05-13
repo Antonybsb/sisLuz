@@ -12,14 +12,28 @@ module.exports = {
       membroCursoId: {
         type: Sequelize.INTEGER
       },
-      membroId: {
-        type: Sequelize.INTEGER
-      },
-      cursoId: {
-        type: Sequelize.INTEGER
-      },
       statusCurso: {
         type: Sequelize.STRING
+      },
+      membro_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'membro',
+          key: 'membro_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
+      },
+      curso_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'curso',
+          key: 'curso_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,

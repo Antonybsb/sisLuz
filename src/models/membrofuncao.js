@@ -13,11 +13,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   MembroFuncao.init(
     {
-      membroId: {
+      membroFuncaoId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        field: 'membro_id'
+        field: 'membro_funcao_id'
       },
       funcaoId: {
         type: DataTypes.INTEGER,
@@ -35,9 +35,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         field: 'status_funcao'
       },
-      membroFuncaoId: {
+      membroId: {
         type: DataTypes.INTEGER,
-        field: 'membro_funcao_id'
+        field: 'membro_id'
       }
     },
     {

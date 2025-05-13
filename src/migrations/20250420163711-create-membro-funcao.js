@@ -9,12 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      membroId: {
-        type: Sequelize.INTEGER
-      },
-      funcaoId: {
-        type: Sequelize.INTEGER
-      },
       dtInicio: {
         type: Sequelize.DATE
       },
@@ -26,6 +20,26 @@ module.exports = {
       },
       membroFuncaoId: {
         type: Sequelize.INTEGER
+      },
+      membro_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'membro',
+          key: 'membro_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
+      },
+      funcao_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'funcao',
+          key: 'funcao_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,

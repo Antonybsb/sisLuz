@@ -39,14 +39,28 @@ module.exports = {
       matricula: {
         type: Sequelize.STRING
       },
-      endereco_id: {
-        type: Sequelize.INTEGER
-      },
-      batismo_id: {
-        type: Sequelize.INTEGER
-      },
       email: {
         type: Sequelize.STRING
+      },
+      endereco_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'endereco',
+          key: 'endereco_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
+      },
+      batismo_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'batismo',
+          key: 'batismo_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,

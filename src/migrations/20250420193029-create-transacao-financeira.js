@@ -21,8 +21,15 @@ module.exports = {
       tpTransacao: {
         type: Sequelize.STRING
       },
-      categoriaId: {
-        type: Sequelize.INTEGER
+      categoria_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'CategoriaTransacao',
+          key: 'categoria_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,

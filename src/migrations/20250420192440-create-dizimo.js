@@ -21,6 +21,16 @@ module.exports = {
       membroId: {
         type: Sequelize.INTEGER
       },
+      membro_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'membro',
+          key: 'membro_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

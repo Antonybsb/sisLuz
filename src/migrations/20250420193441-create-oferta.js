@@ -18,11 +18,25 @@ module.exports = {
       dtOferta: {
         type: Sequelize.DATE
       },
-      membroId: {
-        type: Sequelize.INTEGER
+      membro_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'membro',
+          key: 'membro_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
-      transacaoId: {
-        type: Sequelize.INTEGER
+      transacao_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'TransacaoFinanceira',
+          key: 'transacao_id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,
