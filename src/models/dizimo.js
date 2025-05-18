@@ -1,17 +1,14 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class dizimo extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class Dizimo extends Model {
     static associate(models) {
-      // define association here
+      Dizimo.belongsTo(models.Membro, {
+        foreignKey: 'membro_id'
+      });
     }
   }
-  dizimo.init(
+  Dizimo.init(
     {
       dizimoId: {
         type: DataTypes.INTEGER,
@@ -34,10 +31,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'dizimo',
+      modelName: 'Dizimo',
       tableName: 'dizimo',
       timestamps: false
     }
   );
-  return dizimo;
+  return Dizimo;
 };

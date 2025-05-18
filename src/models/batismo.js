@@ -1,17 +1,14 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class batismo extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class Batismo extends Model {
     static associate(models) {
-      // define association here
+      Batismo.hasMany(models.Membro, {
+        foreignKey: 'batismo_id'
+      });
     }
   }
-  batismo.init(
+  Batismo.init(
     {
       batismoId: {
         type: DataTypes.INTEGER,
@@ -30,10 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'batismo',
+      modelName: 'Batismo',
       tableName: 'batismo',
       timestamps: false
     }
   );
-  return batismo;
+  return Batismo;
 };

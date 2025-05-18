@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'endereco_id'
       });
       Membro.belongsTo(models.Batismo, {
-        foreignKey: 'membro_id'
+        foreignKey: 'batismo_id'
       });
       Membro.hasMany(models.Dizimo, {
         foreignKey: 'membro_id'
@@ -16,7 +16,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'membro_id'
       });
       Membro.belongsToMany(models.CursoBiblico, {
-        through: 'MembroCurso'
+        through: 'MembroCurso',
+        foreignKey: 'membro_id'
+      });
+      Membro.belongsToMany(models.FuncaoEclesiastica, {
+        through: 'MembroFuncao',
+        foreignKey: 'membro_id'
       });
     }
   }
