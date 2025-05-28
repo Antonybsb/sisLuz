@@ -10,7 +10,7 @@ class Services {
     return dataSource[this.model].findAll({ order: [['membroId', 'ASC']] });
   }
 
-  async pegaUmregistroPorId(id) {
+  async pegaUmRegistroPorId(id) {
     return dataSource[this.model].findByPk(id);
   }
 

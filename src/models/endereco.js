@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        field: 'batismo_id'
+        field: 'endereco_id'
       },
       cep: DataTypes.STRING,
       logradouro: DataTypes.STRING,

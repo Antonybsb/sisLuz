@@ -36,10 +36,10 @@ fs.readdirSync(__dirname)
       Sequelize.DataTypes
     );
     db[model.name] = model;
-    console.log(`Modelo carregado: ${model.name}`);
+    // console.log(`Modelo carregado: ${model.name}`);
   });
 
-console.log('DB antes das associações:', Object.keys(db)); // <--- aqui
+// console.log('DB antes das associações:', Object.keys(db));
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
